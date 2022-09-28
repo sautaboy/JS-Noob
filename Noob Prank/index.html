@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: aqua;
+        font-family: serif;
+      }
+
+      body {
+        height: 100vh;
+      }
+
+      #demo2 {
+        background-color: antiquewhite;
+        margin: auto;
+        margin-top: 1rem;
+        border: 1px solid black;
+        border-radius: 10px;
+        width: 20rem;
+        text-align: center;
+        padding: 10px;
+      }
+
+      #kick {
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #kick1 {
+        background-color: rgba(255, 0, 0, 0.681);
+        color: white;
+        padding: 5px 40px;
+        text-align: center;
+        margin: 5px;
+      }
+
+      #kick1:hover {
+        background-color: red;
+      }
+
+      #kick2:hover {
+        background: green;
+      }
+
+      #kick2 {
+        background-color: rgba(0, 128, 0, 0.734);
+        color: white;
+        padding: 5px 40px;
+        text-align: center;
+
+      }
+
+      #dialogBox {
+        background-color: pink;
+        padding: 10px;
+        margin: auto;
+        display: flex;
+        border: none;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+
+      #dialogBox:hover {
+        background-color: blue;
+        color: white;
+      }
+
+      #yesno {
+        display: flex;
+        margin: auto;
+        justify-content: center;
+      }
+
+      #yes {
+        background-color: rgb(0, 128, 0);
+        color: white;
+        padding: 5px 40px;
+        text-align: center;
+        margin: 10px;
+      }
+
+      #no {
+        background-color: red;
+        color: white;
+        padding: 10px 40px;
+        text-align: center;
+        margin: 10px;
+      }
+
+      #centre {
+        padding-top: 50px;
+
+      }
+
+      @media only screen and (min-width:480px) {
+        body {
+          background-color: aqua;
+
+        }
+
+        #demo2 {
+          border: 1px solid black;
+          border-radius: 5px;
+          width: 8rem;
+          text-align: center;
+          padding: 5px;
+          font-size: 14px;
+        }
+
+        h2 {
+          font-size: 12px;
+        }
+
+        #kick1 {
+          background-color: rgba(255, 0, 0, 0.681);
+          color: white;
+          padding: 5px 15px;
+          text-align: center;
+          margin: 5px;
+        }
+
+        #kick2 {
+          background-color: rgba(0, 128, 0, 0.734);
+          color: white;
+          padding: 5px 15px;
+          text-align: center;
+
+        }
+
+        #dialogBox {
+          background-color: pink;
+          padding: 5px;
+          margin: auto;
+          display: flex;
+          border: none;
+          border: 1px solid black;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+
+        #dialogBox:hover {
+          background-color: blue;
+          color: white;
+        }
+
+        #yesno {
+          display: flex;
+          margin: auto;
+          justify-content: center;
+        }
+
+        #yes {
+          background-color: rgb(0, 128, 0);
+          color: white;
+          padding: 5px 15px;
+          text-align: center;
+          margin: 10px;
+        }
+
+        #no {
+          background-color: red;
+          color: white;
+          padding: 5px 15px;
+          text-align: center;
+          margin: 10px;
+        }
+
+        #centre {
+          padding-top: 100px;
+
+        }
+
+
+      }
+    </style>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="centre">
+      <!-- Kick Me -->
+      <p id="demo2">Please Don't Kick Me 🥺 </p>
+      <div id="kick">
+        <button type="button" id="kick1" onclick="kick1Func()">Kick</button>
+        <button type="button" id="kick2" onclick="kick2Func()">Stay</button>
+      </div>
+
+      <br>
+      <!-- Dialog Box  -->
+      <button id="dialogBox" onclick="dialogFunc()">Click Me For Dialog Box !</button>
+      <br>
+      <!-- Game -->
+      <h2 style="text-align: center;">Do You Want To Play a Simple Game?</h2>
+      <br>
+      <div id="yesno">
+        <button type="button" id="yes" onclick="yesFunc()">Yes</button>
+        <button type="button" id="no" onclick="noFunc()">No</button>
+      </div>
+
+      <div id="blankDiv"
+        style=" font-size: 20px; text-align: center; color: black; border-radius: 5px; margin: 10px 0px;">
+      </div>
+
+    </div>
+    <!-- Script Area -->
+    <script>
+      // Kick Script
+      function dialogFunc() {
+        var showDialog = ("Hi I am a Dialog Box, Thank You For Calling Me 😌")
+        alert(showDialog)
+      }
+      function kick1Func() {
+        var changeDemoValue = ("Haha I Kicked Her 🥳")
+        document.getElementById("demo2").innerHTML = changeDemoValue
+      }
+      function kick2Func() {
+        var changeDemoValue = ("Thank You 🥹")
+        document.getElementById("demo2").innerHTML = changeDemoValue
+      }
+
+      // Game Script
+      function yesFunc() {
+        var yourName;
+        enterName = prompt("What is Your Name ?")
+        yourName = enterName
+        document.getElementById("blankDiv").innerHTML = (`${yourName} Teri Aaama Ko Cando 😂`)
+      }
+      function noFunc() {
+        alert("Lado Kha Muji🤣")
+      }
+
+
+
+
+
+    </script>
+  </body>
+
+  </html>
+  <script src="script.js"></script>
+
+  <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script>
+</body>
+
+</html>
