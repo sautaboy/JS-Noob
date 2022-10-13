@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 2.5rem;
+            /* background-color: black; */
+            padding: 10px;
+            color: honeydew;
+            height: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px red solisd;
+            height: 5rem;
+            width: 20rem;
+            border-radius: 5px;
+            border: white 1px solid;
+            box-shadow: yellow 0px 0px 10px 0px;
+            box-shadow: red 0px 0px 5px 0px;
+
+        }
+
+        body {
+            background-color: rgb(25, 22, 22);
+        }
+    </style>
+</head>
+
+<body onload=showTime()>
+    <!-- <h1 id="result"></h1>
+    <button onclick="pop()" id="click">POP</button>
+    <button onclick="push()" id="click">PUSH</button>
+    <button onclick="reverse()" id="click">Reverse</button>
+    <button onclick="shift()" id="click">Shift</button>
+    <button onclick="join()" id="click">join</button> -->
+
+    <!-- <input type="text" name="yourname">
+    <button onclick="submit()">Submit</button>
+    <h1></h1> -->
+    <h1></h1>
+
+
+
+</body>
+<script>
+    // let fruits = ['Apple', 'Mango', 'Orange', 'Banana']
+    // let vegetables = ['Gundruk', 'Ghiraula', 'Farsi', 'Laua']
+    // let demo = fruits
+    // document.getElementById("result").innerText = demo
+    // function pop() {
+    //     let y = prompt("Enter a Fruits Name")
+    //     demo.pop(y)
+    //     document.getElementById("result").innerText = demo
+    // }
+    // function push() {
+    //     let x = prompt("Enter a Fruits Name")
+    //     demo.push(x)
+    //     document.getElementById("result").innerText = demo
+    // }
+    // function reverse() {
+    //     demo.reverse()
+    //     document.getElementById("result").innerText = demo
+    // }
+    // function shift() {
+    //     let x = demo.shift()
+    //     document.getElementById("result").innerText = x
+    // }
+
+    // function join() {
+    //   let p=  fruits.join("-")
+    //     document.getElementById("result").innerText=p
+    // }
+    // function submit() {
+    //     let value = document.getElementsByName("yourname")[0].value
+    //     document.getElementsByName("yourname")[0].value=""
+
+    //     document.getElementsByTagName("h1")[0].innerHTML = value
+    // }
+    function showTime() {
+        let d = new Date()
+        let h = d.getHours()
+        let m = d.getMinutes()
+        let s = d.getSeconds()
+        let ampm = "AM"
+        if (h >= 12) {
+            ampm = "PM"
+        }
+        if (h > 12) {
+            h = h - 12
+        }
+        h = h < 10 ? "0" + h : h
+        m = m < 10 ? "0" + m : m
+        s = s < 10 ? "0" + s : s
+
+        let time = (`${h}:${m}:${s}:${ampm}`)
+        document.getElementsByTagName("h1")[0].innerText = time
+        setTimeout(() => {
+            return showTime()
+        }, 1000);
+    }
+</script>
+
+</html>
