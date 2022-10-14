@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #input {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            padding: 10px;
+            text-align: center;
+            background-color: honeydew;
+        }
+
+        #result {
+            position: fixed;
+            top: 55%;
+            left: 50%;
+            padding: 10px;
+            text-align: center;
+            background-color: honeydew;
+        }
+    </style>
+</head>
+
+<body onload="float()">
+    <input type="text" name="text" id="input" placeholder="Enter Number" onkeyup="val(this)">
+    <div id="result"></div>
+    <div id="float" style="text-align: center; font-size: 40px;"></div>
+
+</body>
+<script>
+    function float() {
+        setTimeout(() => {
+            document.getElementById("float").innerText = "Float Numbr is Accetable,lol"
+        }, 5000);
+    }
+    function val(elem) {
+        document.getElementById("input").style.color = "green"
+        document.getElementById("result").style.color = "red"
+        if (isNaN(elem.value)) {
+            document.getElementById("result").innerText = "Enter a Number Only"
+        }
+        else {
+            document.getElementById("result").innerText = ""
+            if (elem.value.length > 10) {
+                document.getElementById("result").innerText = " Ten Digits Only"
+            }
+            else {
+                document.getElementById("result").innerText = ""
+            }
+        }
+    }
+</script>
+
+</html>
