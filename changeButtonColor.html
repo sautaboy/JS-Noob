@@ -9,6 +9,7 @@
     <style>
         button {
             padding: 5px 5px;
+            margin: 5px;
         }
     </style>
 </head>
@@ -22,7 +23,7 @@
     <button id="brown" onclick="brown()">Brown</button>
     <button id="gray" onclick="gray()">Gray</button>
     <button id="hotpink" onclick="hotpink()">HotPink</button>
-    <!-- <button id="play" onclick="play()">Play</button> -->
+    <button id="play" onclick="play()">Play</button>
 
     </div>
 </body>
@@ -47,10 +48,13 @@
     function gray() {
         document.getElementById("gray").style.backgroundColor = "gray"
     }
+    function play() {
 
-
-    let audio = new Audio('audio.mp3')
-    audio.play()
+        {
+            let audio = new Audio("https://www.computerhope.com/jargon/m/example.mp3")
+            audio.play()
+        }
+    }
 
 
 
