@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Number Should Be Greater Than 5 and Less Than 10</h1>
+    <input type="text" name="text" id="num" placeholder="Enter a Number">
+    <button onclick="submit()">Submit</button>
+    <div id="result"></div>
+</body>
+<script>
+    function submit() {
+        let num = document.getElementById("num")
+        let number = num.value
+        try {
+            if (isNaN(number)) {
+                throw "This is Not a Number"
+            }
+            else {
+                if ((number < 5) || (number > 10)) {
+                    throw "Numbe is Out Of Range"
+                }
+                else {
+                    throw ""
+                }
+            }
+        }
+        catch (error) {
+            document.getElementById("result").innerText = error
+        }
+        finally {
+            num.value = ""
+        }
+    }
+</script>
+
+</html>
