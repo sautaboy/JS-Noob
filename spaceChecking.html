@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Checking Space </h1>
+    <input onkeyup="white(this.value)" type="text" placeholder="username">
+    <input onkeyup="white(this.value)" type="password" placeholder="password">
+    <div style="color: red;" id="error"></div>
+
+</body>
+<script>
+    let pattern = /\s/g
+    function white(data) {
+        let isSpace = pattern.test(data)
+        if (isSpace) {
+            // alert("Space Not Allowed")
+            document.getElementById("error").innerText = "Space Not Allowed"
+        }
+        else {
+            document.getElementById("error").innerText = ""
+        }
+    }
+</script>
+
+</html>
