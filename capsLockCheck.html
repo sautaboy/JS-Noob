@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <fieldset>
+        <input id="validNumber" onkeyup="validNumber(this)" type="text" placeholder="Phone Number">
+
+        <input id="password" onkeyup="validPassword(this)" type="text" name="password" id="validPassword"
+            placeholder="Create Password">
+
+        <button id="showPassword" onclick="toggle(this)">Show Password</button>
+        <div style="color: red;" id="result"></div>
+        <div style="color: rgb(173, 16, 16);" id="caps"></div>
+    </fieldset>
+</body>
+<script>
+    let flag = 1
+    function validNumber(number) {
+        if (isNaN(number.value)) {
+            document.getElementById("result").innerText = "Number Only"
+        }
+        else {
+            if (number.value.length == 0) {
+
+                document.getElementById("result").innerText = "Number is Required !"
+            }
+            else {
+                if (number.value.length < 0) {
+                    document.getElementById("result").innerText = ""
+                }
+                else {
+                    if (number.value.length > 10) {
+                        document.getElementById("result").innerText = "Number Should be 10 Digits"
+                    }
+                    else {
+                        document.getElementById("result").innerText = ""
+                    }
+                }
+            }
+        }
+    }
+    // 
+    // 
+    function validPassword(password) {
+        if ((password.value.length > 0) && (password.value.length < 8)) {
+            document.getElementById("result").innerText = "Password is Too Short"
+        }
+        else {
+            if (password.value.length == 0) {
+                document.getElementById("result").innerText = "Password is Required"
+            }
+            else {
+                document.getElementById("result").innerText = ""
+            }
+            if (password.value.length > 16) {
+                document.getElementById("result").innerText = "Password Is Too Long"
+            }
+        }
+        // 
+        password.addEventListener('keyup', event => {
+            let isCaps = (event.getModifierState("CapsLock"))
+            if (isCaps) {
+                document.getElementById("caps").innerText = "CapsLock Is On"
+            }
+            else {
+                document.getElementById("caps").innerText = ""
+            }
+        })
+    }
+    // 
+    // 
+    let password = document.getElementById("password")
+    function toggle(elem) {
+        let type = password.getAttribute('type')
+        if (type === 'password') {
+            password.setAttribute('type', 'text')
+            elem.innerText = "Hide Password"
+        }
+        else {
+            password.setAttribute('type', 'password')
+            elem.innerText = "Show Password"
+        }
+    }
+    function validate() {
+        if (flag == 1) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
+
+</script>
+
+</html>
