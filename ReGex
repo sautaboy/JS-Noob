@@ -1,0 +1,5 @@
+        const lowerCase = new RegExp(`(?=.*[a-z])`)
+        const upperCase = new RegExp(`(?=.*[A-Z])`)
+        const numberCase = new RegExp(`(?=.*[0-9])`)
+        const specialCharCase = new RegExp(`(?=.*[!@#$%^&*\/])`)
+        const eightCase = new RegExp(`(?=.{8,})`)
