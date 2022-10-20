@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            background-color: wheat;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 10px 10px;
+            border-radius: 10px;
+        }
+
+        label {
+            text-align: left;
+            padding: 5px;
+        }
+
+        input {
+            padding: 5px;
+            text-align: left;
+        }
+
+        button {
+            background-color: skyblue;
+            padding: 5px;
+            border: 1px solid black;
+            margin: 5px 0px;
+        }
+
+        #error {
+            color: red;
+        }
+
+        #togglePassword {
+            background-color: rgb(160, 216, 239);
+            text-align: center;
+            border: 1px solid black;
+            margin: 5px 0px;
+        }
+
+        #caps {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form" action="https://youtube.com" method="get">
+        <label for="name">Name</label>
+        <input type="text" id="fname" placeholder="Enter Your Name" onkeyup="validfName(this)">
+        <label for="password">Password</label>
+        <input type="password" id="cpassword" placeholder="Create Password" onkeyup="validPassword(this)">
+        <label for="password">Confirm Password</label>
+        <input type="password" id="conPassword" placeholder="Confirm Password" onkeyup="validConPassword(this)">
+        <!-- <div onclick="togglePassword(this)">Show Password</> -->
+        <!-- <input type="text" value="Show Password"> -->
+        <label id="togglePassword" onclick="togglePassword(this)">Show Password</label>
+        <div id="error"></div>
+        <button type="submit">Sign Up</button>
+        <label id="caps"></label>
+    </form>
+</body>
+<script defer>
+    const fname = document.getElementById("fname")
+    const cpassword = document.getElementById("cpassword")
+    const form = document.getElementById("form")
+    const conPassword = document.getElementById("conPassword")
+
+    form.addEventListener('submit', (e) => {
+        let errorMessage = []
+        if (fname.value.trim() === "" || fname.value.trim() == null) {
+            errorMessage.push("Name is Required !")
+        }
+        if ((fname.value.length <= 5) && (fname.value.length > 0)) {
+            errorMessage.push("")
+        }
+        if (cpassword.value.trim() === "" || cpassword.value.trim() == null) {
+            errorMessage.push("Password is Required !")
+        }
+        if ((cpassword.value.length <= 6) && (cpassword.value.length > 0)) {
+            errorMessage.push("")
+        }
+        if (cpassword.value.length >= 16) {
+            errorMessage.push("")
+        }
+        if (cpassword.value === "Password" || cpassword.value === "password") {
+            errorMessage.push("")
+        }
+        if (cpassword.value != conPassword.value) {
+            errorMessage.push("")
+        }
+        if (fname.value.length <= 5) {
+            errorMessage.push("")
+        }
+        if ((fname.value.length > 5) && (fname.value.length <= 12)) {
+            errorMessage.push = ("")
+        }
+        if (fname.value.length > 12) {
+            errorMessage.push("")
+        }
+
+        if (errorMessage.length > 0) {
+            e.preventDefault()
+            error.innerText = errorMessage.join("")
+        }
+    })
+
+    // Password Validation
+    function validPassword(elem) {
+
+        if (elem.value.length == 0) {
+            document.getElementById("error").innerText = "Password is Required "
+
+        }
+        else {
+
+            if ((elem.value === "Password") || (elem.value == "password")) {
+                document.getElementById("error").innerText = "Password Cannot Be Password"
+            }
+            else {
+                if (elem.value.length <= 6) {
+                    document.getElementById("error").innerText = "Password Must be Longer Than 6 character"
+                }
+                else {
+                    if (elem.value.length > 16) {
+                        document.getElementById("error").innerText = "Password Must Be less Than 16 Character"
+
+                    }
+                    else {
+                        document.getElementById("error").innerText = ""
+                    }
+                }
+            }
+
+            // document.getElementById("error").innerText = ""
+        }
+    }
+    // Confirm Password Validation
+    function validConPassword(ele) {
+        if (conPassword.value.length == 0) {
+            document.getElementById("error").innerText = "Confirm Password is Required"
+        }
+        else {
+            if (conPassword.value != cpassword.value) {
+                document.getElementById("error").innerText = "Confirm Password Does Not Match"
+            }
+            else {
+                document.getElementById("error").innerText = ""
+            }
+        }
+    }
+    function validfName(elem) {
+        if (elem.value.length == 0) {
+            document.getElementById("error").innerText = "Name is Requred !"
+        }
+        else {
+            if ((elem.value.length <= 5) && (elem.value.length > 0)) {
+                document.getElementById("error").innerText = "Name is Too Short"
+            }
+            else {
+                if ((elem.value.length > 5) && (elem.value.length <= 12)) {
+                    document.getElementById("error").innerText = ""
+                }
+                else {
+                    if (elem.value.length > 12) {
+                        document.getElementById("error").innerText = "Invalid Name!"
+
+                    }
+                    else {
+                        document.getElementById("error").innerText = "lol"
+                    }
+                }
+            }
+        }
+    }
+
+    // Toggle Password
+    let firstPassword = document.getElementById("cpassword")
+    let secondPassword = document.getElementById("conPassword")
+
+    function togglePassword(elem) {
+        let type1 = firstPassword.getAttribute('type')
+        let type2 = secondPassword.getAttribute('type')
+
+        if (type1 === 'password' || type2 === 'password') {
+            firstPassword.setAttribute('type', 'text')
+            secondPassword.setAttribute('type', 'text')
+
+            elem.innerText = "Hide Password"
+        }
+        else {
+            firstPassword.setAttribute('type', 'password')
+            secondPassword.setAttribute('type', 'password')
+
+            elem.innerText = "Show Password"
+        }
+    }
+    // Capslock Checker
+    window.addEventListener('keyup', (event) => {
+        let isCaps = event.getModifierState("CapsLock")
+        if (isCaps) {
+            document.getElementById("caps").innerText = "Caps Lock Is On !"
+        }
+        else {
+            document.getElementById("caps").innerText = ""
+
+        }
+    })
+</script>
+
+</html>
