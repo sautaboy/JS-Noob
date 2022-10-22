@@ -8,28 +8,37 @@
     <title>Document</title>
     <style>
         form {
-            background-color: wheat;
+            background-color: black;
             display: flex;
             flex-direction: column;
             padding: 10px 10px 10px;
             border-radius: 10px;
+            color: wheat;
         }
 
         label {
             text-align: left;
             padding: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+
         }
 
         input {
-            padding: 5px;
+            padding: 10px;
             text-align: left;
         }
 
-        button {
+        #button {
             background-color: skyblue;
-            padding: 5px;
-            border: 1px solid black;
-            margin: 5px 0px;
+            color: black;
+            /* font-weight: bold; */
+            font-weight: bolder;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 15px;
+            border: blanchedalmond 2px solid;
+            margin-top: 5px;
         }
 
         #error {
@@ -39,31 +48,106 @@
         #togglePassword {
             background-color: rgb(160, 216, 239);
             text-align: center;
-            border: 1px solid black;
-            margin: 5px 0px;
+            margin: 10px 0px 5px 0px;
+            color: black;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 10px;
+            border-radius: 5px;
         }
 
         #caps {
             color: red;
         }
+
+        @media only screen and (orientation:portrait) {
+            label {
+                text-align: left;
+                padding: 5px;
+                border-radius: 5px;
+                font-size: 14px;
+
+            }
+
+            input {
+                padding: 10px;
+                text-align: left;
+            }
+
+            #button {
+                background-color: skyblue;
+                color: black;
+                /* font-weight: bold; */
+                font-weight: bolder;
+                border-radius: 5px;
+                font-size: 16px;
+                padding: 10px;
+                border: blanchedalmond 2px solid;
+                margin-top: 5px;
+            }
+
+            #error {
+                color: red;
+            }
+
+            #togglePassword {
+                background-color: rgb(160, 216, 239);
+                text-align: center;
+                margin: 10px 0px 5px 0px;
+                color: black;
+                font-weight: bold;
+                font-size: 14px;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            #caps {
+                color: red;
+            }
+        }
+
+        @media only screen and (orientation:landscape) {
+            form {
+                background-color: black;
+                padding: 0px 100px;
+                height: fit-content;
+            }
+
+            label {
+                padding: 5px;
+            }
+
+            #button {
+                padding: 5px;
+            }
+
+            #togglePassword {
+                padding: 5px;
+            }
+
+            input {
+                padding: 5px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <form id="form" action="https://youtube.com" method="get">
-        <label for="name">Name</label>
-        <input type="text" id="fname" placeholder="Enter Your Name" onkeyup="validfName(this)">
-        <label for="password">Password</label>
-        <input type="password" id="cpassword" placeholder="Create Password" onkeyup="validPassword(this)">
-        <label for="password">Confirm Password</label>
-        <input type="password" id="conPassword" placeholder="Confirm Password" onkeyup="validConPassword(this)">
-        <!-- <div onclick="togglePassword(this)">Show Password</> -->
-        <!-- <input type="text" value="Show Password"> -->
-        <label id="togglePassword" onclick="togglePassword(this)">Show Password</label>
-        <div id="error"></div>
-        <button type="submit">Sign Up</button>
-        <label id="caps"></label>
-    </form>
+    <div class="formContainer">
+
+        <form id="form" action="https://youtube.com" method="get">
+            <label for="name">Name</label>
+            <input type="text" id="fname" placeholder="Enter Your Name" onkeyup="validfName(this)">
+            <label for="password">Password</label>
+            <input type="password" id="cpassword" placeholder="Create Password" onkeyup="validPassword(this)">
+            <label for="password">Confirm Password</label>
+            <input type="password" id="conPassword" placeholder="Confirm Password" onkeyup="validConPassword(this)">
+            <div id="togglePassword" onclick="togglePassword(this)">Show Password</div>
+            <div id="error"></div>
+            <button type="submit" id="button">Sign Up</button>
+            <label id="caps"></label>
+        </form>
+    </div>
 </body>
 <script defer>
     const fname = document.getElementById("fname")
@@ -74,20 +158,35 @@
     form.addEventListener('submit', (e) => {
         let errorMessage = []
         if (fname.value.trim() === "" || fname.value.trim() == null) {
-            errorMessage.push("Name is Required !")
+            errorMessage.push("Name is Required ! ")
         }
+        else {
+            if (!fname.value.match(/^[a-zA-Z]+ [a-zA-Z]+$/)) {
+                errorMessage.push("Name Must Have First And Last Name ! ")
+            }
+        }
+
         if ((fname.value.length <= 5) && (fname.value.length > 0)) {
             errorMessage.push("")
         }
         if (cpassword.value.trim() === "" || cpassword.value.trim() == null) {
-            errorMessage.push("Password is Required !")
+            errorMessage.push("Password is Required ! ")
         }
+        else {
+            if (!cpassword.value.match(`(?=.*[A-Z])`) || (!cpassword.value.match((`(?=.*[a-z])`))) || (!cpassword.value.match((`(?=.*[0-9])`))) || (!cpassword.value.match((`(?=.*[!@#$%^&*\/])`))) || (!cpassword.value.match((`(?=.{6,})`)))) {
+                errorMessage.push("Password Must Have UpperCase,LowerCase,Number And Special Character ! ")
+            }
+        }
+
         if ((cpassword.value.length <= 6) && (cpassword.value.length > 0)) {
             errorMessage.push("")
         }
         if (cpassword.value.length >= 16) {
             errorMessage.push("")
         }
+
+
+
         if (cpassword.value === "Password" || cpassword.value === "password") {
             errorMessage.push("")
         }
@@ -97,10 +196,10 @@
         if (fname.value.length <= 5) {
             errorMessage.push("")
         }
-        if ((fname.value.length > 5) && (fname.value.length <= 12)) {
+        if ((fname.value.length > 5) && (fname.value.length <= 20)) {
             errorMessage.push = ("")
         }
-        if (fname.value.length > 12) {
+        if (fname.value.length > 20) {
             errorMessage.push("")
         }
 
@@ -163,11 +262,11 @@
                 document.getElementById("error").innerText = "Name is Too Short"
             }
             else {
-                if ((elem.value.length > 5) && (elem.value.length <= 12)) {
+                if ((elem.value.length > 5) && (elem.value.length <= 20)) {
                     document.getElementById("error").innerText = ""
                 }
                 else {
-                    if (elem.value.length > 12) {
+                    if (elem.value.length > 20) {
                         document.getElementById("error").innerText = "Invalid Name!"
 
                     }
