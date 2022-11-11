@@ -1,14 +1,23 @@
-let marks = prompt("Enter Your Marks")
-    let p = new Promise((resolve, reject) => {
-        alert("Please Wait For Your Result")
-        if (marks < 40) {
-            setTimeout(() => {
-                resolve("You are not Selected")
-            }, 6000);
+// This Will Keep The Records Inn console , well Teh USer Is Verified Or Not
+
+let userName = prompt("Enter Your Full Name")
+    let promise = new Promise((resolve, reject) => {
+        if (!userName.match(/^[a-zA-Z]+ [a-zA-Z]+$/)) {
+            reject(alert("Invalid Name"))
         }
         else {
-            reject("You are Selected")
+            let age = prompt("Enter Your Age")
+            if ((age < 18) || (age > 110) || (isNaN(age))) {
+                reject(alert("Invalid Age"))
+            }
+            else {
+                resolve()
+            }
         }
-
     })
-    p.then(alert).catch(alert)
+    promise.then(() => {
+        console.log("Person Is Varyiied")
+    })
+    promise.catch(() => {
+        console.log("Peroson Is Not Varified")
+    })
