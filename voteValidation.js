@@ -8,7 +8,7 @@
     }
     else {
         if (isNaN(age)) {
-            console.log("Age Must Be in Number")
+            console.log("Age Must Be in Valid  Number")
         }
         else {
             if (age <= 0) {
