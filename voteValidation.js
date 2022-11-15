@@ -1,5 +1,5 @@
 // Validation for Vote
-<script>
+
     let age = prompt("Enter Your Age")
     // console.log(typeof (+age))
     age = +age.trim()
@@ -34,4 +34,4 @@
             }
         }
     }
-</script>
+
