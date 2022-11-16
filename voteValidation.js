@@ -10,7 +10,7 @@
             console.log("Age Must Be in Valid  Number")
         }
         else {
-            age=+age
+            age=+age. //This Will Change The Data Type Of Enterd String Value To Number;
             if (age <= 0) {
                 console.log("Invalid Age")
             }
