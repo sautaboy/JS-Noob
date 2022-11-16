@@ -1,9 +1,8 @@
 // Validation for Vote
 
     let age = prompt("Enter Your Age")
-    // console.log(typeof (+age))
-    age = +age.trim()
-    if (age.length == 0) {
+    age = age.trim()
+    if (age.trim() == 0) {
         console.log("Please Fill The Age ")
     }
     else {
@@ -11,6 +10,7 @@
             console.log("Age Must Be in Valid  Number")
         }
         else {
+            age=+age
             if (age <= 0) {
                 console.log("Invalid Age")
             }
