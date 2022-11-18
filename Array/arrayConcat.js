@@ -1,4 +1,4 @@
-<script>
+
     // We Can Clone or concat array in 3 ways
     // Concat Method
     let array1 = ['Ashok', 'Sauta', 'Kauro'];
@@ -33,4 +33,3 @@
 
 
 
-</script>
