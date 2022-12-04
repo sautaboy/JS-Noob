@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #generateColor {
+            height: 2rem;
+            width: 10rem;
+            top: 50%;
+            left: 50%;
+            position: fixed;
+
+        }
+
+        #colorCode {
+            height: 2rem;
+            width: 10rem;
+            top: 45%;
+            left: 50%;
+            position: fixed;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+        <button id="colorCode">Color Code </button>
+        <button id="generateColor">Generate Color</button>
+    </div>
+
+    <script>
+        const body = document.body
+        const colorCode = document.querySelector('#colorCode')
+        const generateColor = document.querySelector('#generateColor')
+        function generateColor1() {
+            const red = Math.floor(Math.random() * 256)
+            const green = Math.floor(Math.random() * 256)
+            const blue = Math.floor(Math.random() * 256)
+            const color = `rgb(${red},${green},${blue})`
+            return color
+        }
+        generateColor.addEventListener('click', () => {
+            const randomColorCode = generateColor1()
+            body.style.backgroundColor = randomColorCode
+            colorCode.textContent = randomColorCode
+        })
+    </script>
+</body>
+
+</html>
