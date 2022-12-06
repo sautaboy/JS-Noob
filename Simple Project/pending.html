@@ -1,0 +1,153 @@
+<style>
+    /* label {
+        padding: 1rem;
+        background-color: antiquewhite;
+        border-radius: 1.2rem;
+    } */
+    * {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .container {
+        padding: 1rem;
+        background-color: antiquewhite;
+        height: max-content;
+        width: fit-content;
+    }
+
+    .subjectMarks {
+        padding: 1rem;
+        /* background-color: aqua; */
+    }
+
+    .subjectMarks li {
+        padding: 5px 0px;
+    }
+
+
+
+
+    .resultContainer {
+        padding: 1rem;
+        background-color: rgb(219, 250, 215);
+        height: max-content;
+        width: fit-content;
+    }
+
+    .resultContainer {
+        height: fit-content;
+        width: fit-content;
+    }
+
+    p {
+        padding: 1rem 10rem;
+        border: 1px solid black;
+        height: 1rem;
+        width: 1rem;
+    }
+
+    .resultContainer {
+        display: none;
+        background-color: purple;
+    }
+</style>
+
+<body>
+    <!-- this is For Entering The Data -->
+    <div class="container">
+        <!-- subject marks container is Here -->
+        <div class="subjectMarks">
+            <li>
+                <label>English <br>
+                    <input type="text" placeholder="Enter a Marks" id="englishMarks">
+                </label>
+            </li>
+            <li>
+                <label for="#">Account
+                    <br>
+                    <input type="text" placeholder="Enter a Marks" id="accountMarks">
+                </label>
+            </li>
+            <li>
+                <label for="#">Math
+                    <br>
+                    <input type="text" placeholder="Enter a Marks" id="mathMarks">
+                </label>
+            </li>
+            <li>
+                <label for="#">Micro Processor
+                    <br>
+                    <input type="text" placeholder="Enter a Marks" id="microProcessorMarks">
+                </label>
+            </li>
+            <li>
+                <label for="#">C Programming
+                    <br>
+                    <input type="text" placeholder="Enter a Marks" id="cMarks">
+                </label>
+            </li>
+            <li>
+                <!-- pushing new student is here -->
+                <div class="newStudentName">
+                    <label for="#">New Student
+                        <br>
+                        <input type="text" id="newStudent" placeholder="Enter a Student Name">
+                        </form>
+                        <button id="pushNewStudent">Push</button>
+                    </label>
+                </div>
+            </li>
+        </div>
+
+    </div>
+    <div class="resultContainer">
+        <label>Name:
+            <span id="nameOfStudent"></span>
+        </label>
+        <br>
+        <br>
+        <label for="">English
+            <p id="english"></p>
+        </label>
+        <label for="">Account
+            <p id="account"></p>
+        </label>
+        <label for="">Math
+            <p id="math"></p>
+        </label>
+        <label for="">MicroProcessor
+            <p id="mup"></p>
+        </label>
+        <label for="">C Programming
+            <p id="c"></p>
+        </label>
+    </div>
+
+    <script>
+        const englishMarks = document.getElementById('englishMarks').value
+        const accountMarks = document.getElementById('accountMarks').value
+        const mathMarks = document.getElementById('mathMarks').value
+        const microProcessorMarks = document.getElementById('microProcessorMarks').value
+        const cMarks = document.getElementById('cMarks').value
+        const studentName = document.getElementById('newStudent').value
+        const button = document.getElementById('pushNewStudent')
+
+
+
+        document.getElementById('nameOfStudent').innerText = studentName
+        document.getElementById('english').innerText = englishMarks
+        document.getElementById('account').innerText = accountMarks
+        document.getElementById('math').innerText = mathMarks
+        document.getElementById('mup').innerText = microProcessorMarks
+        document.getElementById('c').innerText = cMarks
+
+        button.addEventListener('click', () => {
+            const displayBlock = document.querySelector('.resultContainer')
+            // displayBlock.style.backgroundColor = "black"
+            displayBlock.style.display = "block"
+
+
+        })
+    </script>
+</body>
