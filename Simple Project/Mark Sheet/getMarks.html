@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Marks</title>
+</head>
+<form action="marksheet.html" id="form" method="get">
+    <div class="check">
+        <li>
+            <label>
+                Name:
+                <br>
+                <input type="text" id="checkName" placeholder="Enter Your Name">
+            </label>
+        </li>
+        <li>
+            <label>
+                Symbol Number:
+                <br>
+                <input type="text" id="checkSymbol" placeholder="Enter Your Name">
+            </label>
+        </li>
+        <li>
+            <label>
+                <button type="submit">Get MarkSheet</button>
+            </label>
+        </li>
+    </div>
+</form>
+
+<body>
+
+</body>
+<script defer>
+    // yesle chai mathi ko id target garko xa
+    const checkName = document.getElementById('checkName')
+    const checkSymbol = document.getElementById('checkSymbol')
+
+    // yesle chai setmarks vanni page bata enter gareko value store garirako xa
+    const englishMarks = localStorage.getItem("english-marks")
+    const mathMarks = localStorage.getItem("math-marks")
+    const accountMarks = localStorage.getItem("account-marks")
+    const mupMarks = localStorage.getItem("mup-marks")
+    const cMarks = localStorage.getItem("c-marks")
+    const studentName = localStorage.getItem("student-name")
+    const symbolNumber = localStorage.getItem("symbol-number")
+
+    const form = document.getElementById('form')
+    form.addEventListener("submit", (e) => {
+        if (studentName != checkName.value && symbolNumber != checkSymbol.value) {
+            e.preventDefault()
+        }
+    })
+
+    // const studentNamee = localStorage.setItem('student-name', englishMarks.value)
+    const english = localStorage.setItem('english-marks', mathMarks)
+    const math = localStorage.setItem('math-marks', mathMarks)
+    const account = localStorage.setItem('account-marks', accountMarks)
+    const mup = localStorage.setItem('mup-marks', mupMarks)
+    const c = localStorage.setItem('c-marks', cMarks)
+
+
+    // const studentRollNumber = localStorage.setItem('roll-number',mathMarks)
+    // const studentSchoolName = localStorage.setItem('school-name',accountMarks)
+    // const studentDateOfBirth = localStorage.setItem('birth-date',mupMarks)
+    // const studentPassedYear = localStorage.setItem('passed-year',cMarks)
+    // const studentPassedYear = localStorage.setItem('passed-year',cMarks)
+    // const studentPassedYear = localStorage.setItem('passed-year',cMarks)
+
+
+</script>
+
+</script>
+
+</html>

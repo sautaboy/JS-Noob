@@ -1,0 +1,78 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    background-color: #333;
+    color: white;
+}
+
+.container {
+    border: 2px solid white;
+    height: fit-content;
+    width: 100%;
+    padding: 1rem;
+}
+
+.headline_see {
+    text-align: center;
+}
+
+.headline_see .headline p {
+    text-transform: uppercase;
+}
+
+.headline_see .see p {
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+.details p {
+    text-align: justify;
+    text-transform: uppercase;
+    padding: 1rem;
+    /* font-weight: normal; */
+    letter-spacing: 1px;
+
+}
+
+.resultBox {
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-around;
+    /* align-items: center; */
+    text-align: justify;
+    text-transform: uppercase;
+    border: 1px solid whitesmoke;
+    padding: 1rem;
+}
+
+.gradePointAverage {
+    text-align: right;
+    padding: 1rem;
+    text-transform: uppercase;
+    /* font-weight: normal; */
+}
+
+.conclusion {
+    /* text-align: justify; */
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+.checkedByControler {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+#yourName,
+#yourRollNumber,
+#yourSchoolName,
+#yourSymbolNumber,
+#yourPassedYear,
+#yourDateOfBirth {
+    color: pink;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+}

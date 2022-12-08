@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="marksheet.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="headline_see">
+            <div class="headline">
+                <p>Government of nepal
+                    <br>
+                    national examination board
+                </p>
+            </div>
+            <div class="see">
+                <p>secondry education education examination,grade-10
+                    <br>
+                    grade-sheet
+                </p>
+            </div>
+        </div>
+        <!--  -->
+        <div class="details">
+            <p>the grade(s) secured by: <span id="studentName"></span>
+                <br>
+                date of birth: <span id="studentDateOfBirth">
+                </span>
+                <br>
+                roll <span id="studentRollNumber"></span> symbol number: <span id="studentSymbolNumber"></span>
+                <br>
+                of <span id="studentSchoolName"></span>
+                <br>
+                in the annual's examination, grade-10 of: <span id="studentPassedYear"></span>.Ad are given Below:
+
+            </p>
+        </div>
+        <!--  -->
+
+
+        <div class="resultBox">
+            <div class="serialNumber">
+                serial number
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+                <li>04</li>
+                <li>05</li>
+            </div>
+            <div class="subject">
+                subject
+                <li>English</li>
+                <li>Math</li>
+                <li>Account</li>
+                <li>Mup</li>
+                <li>C</li>
+            </div>
+            <div class="creditHour">credit hour
+                <li id="englishCreditHour">4</li>
+                <li id="mathCreditHour">4</li>
+                <li id="accountCreditHour">4</li>
+                <li id="mupCreditHour">4</li>
+                <li id="cCreditHour">4</li>
+            </div>
+            <div class="obtainedGrade">obtained Grade
+                <li id="englishGrade">a</li>
+                <li id="mathGrade">b+</li>
+                <li id="accountGrade">a</li>
+                <li id="mupGrade">a</li>
+                <li id="cGrade">a</li>
+            </div>
+            <div class="gradePoint">grade point
+                <li id="englishGradePoint">3.2</li>
+                <li id="mathGradePoint">3.4</li>
+                <li id="accountGradePoint">2.4</li>
+                <li id="mupGradePoint">3.4</li>
+                <li id="cGradePoint">2.4</li>
+            </div>
+            <div class="remarks"> remarks</div>
+        </div>
+        <!--  -->
+        <div class="gradePointAverage">Grade point average (gpa):
+            <span id="gpa">2.75</span>
+        </div>
+        <div class="conclusion">
+            <li>1. one credit hour equals 32 clock hours</li>
+            <li>2. *@ : absent</li>
+            <li>3. *t : theory grade missing</li>
+            <li>4. # : subject(s) appeared in the supplementary/upgrade examination</li>
+        </div>
+        <!--  -->
+        <div class="checkedByControler">
+            <div class="checkedLocation">
+                <li>checked by:</li>
+                <li>neb, sanothimi, bhaktapur, nepal</li>
+                <li>date of issue: <span id="checkedByDate">27-june-2019</span> </li>
+            </div>
+            <div class="coe">
+                <li>controller of examination</li>
+            </div>
+        </div>
+    </div>
+    <script>
+        // this is marks from setHtml
+        const english = localStorage.getItem('english-marks')
+        const math = localStorage.getItem('math-marks')
+        const account = localStorage.getItem('account-marks')
+        const mup = localStorage.getItem('mup-marks')
+        const c = localStorage.getItem('c-marks')
+
+        const englishGradePoint = document.getElementById('englishGradePoint')
+        const mathGradePoint = document.getElementById('mathGradePoint')
+        const accountGradePoint = document.getElementById('accountGradePoint')
+        const mupGradePoint = document.getElementById('mupGradePoint')
+        const cGradePoint = document.getElementById('cGradePoint')
+
+
+        // validation
+
+        // getting percentage
+        const englishPercentage = english / 100 * 100
+        const mathPercentage = math / 100 * 100
+        const accountPercentage = account / 100 * 100
+        const mupPercentage = mup / 100 * 100
+        const cPercentage = c / 100 * 100
+        const totalPercentage = englishPercentage + mathPercentage + accountPercentage + mupPercentage + cPercentage
+
+        // geeting the grade
+        const englishGpa = englishPercentage / 25
+        const mathGpa = mathPercentage / 25
+        const accountGpa = accountPercentage / 25
+        const mupGpa = mupPercentage / 25
+        const cGpa = cPercentage / 25
+        const totalGpa = (englishGpa + mathGpa + accountGpa + mupGpa + cGpa) / 75
+
+        // texting grade point
+        englishGradePoint.textContent = englishGpa
+        mathGradePoint.textContent = mathGpa
+        accountGradePoint.textContent = accountGpa
+        mupGradePoint.textContent = mupGpa
+        cGradePoint.textContent = cGpa
+
+
+
+        // id of Subject Grade
+        const englishGrade = document.getElementById("englishGrade")
+        const mathGrade = document.getElementById("mathGrade")
+        const accountGrade = document.getElementById("accountGrade")
+        const mupGrade = document.getElementById("mupGrade")
+        const cGrade = document.getElementById("cGrade")
+
+        // id of Credit Hour
+        const englishCreditHour = document.getElementById('englishCreditHour')
+        const mathCreditHour = document.getElementById('mathCreditHour')
+        const accountCreditHour = document.getElementById('accountCreditHour')
+        const mupCreditHour = document.getElementById('mupCreditHour')
+        const cCreditHour = document.getElementById('cCreditHour')
+
+        // calculating the final grade
+        const finalGpa = ((englishGpa * 4) + (mathGpa * 4) + (accountGpa * 4) + (mupGpa * 4) + (cGpa * 4)) / 20
+        const gpa = document.querySelector('.gradePointAverage')
+        gpa.textContent = finalGpa
+
+
+
+        if (mathGpa <= 0.8) {
+            mathGrade.textContent = "E"
+        }
+        else {
+            if (mathGpa > 0.8 && mathGpa <= 1.2) {
+                mathGrade.textContent = "D"
+
+            }
+            else {
+                if (mathGpa > 1.2 && mathGpa <= 1.6) {
+                    mathGrade.textContent = "D+"
+                }
+                else {
+                    if (mathGpa > 1.6 && mathGpa <= 2.0) {
+                        mathGrade.textContent = "C"
+                    }
+                    else {
+                        if (mathGpa > 2.0 && mathGpa <= 2.4) {
+                            mathGrade.textContent = "C+"
+                        }
+                        else {
+                            if (mathGpa > 2.4 && mathGpa <= 2.8) {
+                                mathGrade.textContent = "B"
+                            }
+                            else {
+                                if (mathGpa > 2.8 && mathGpa <= 3.2) {
+                                    mathGrade.textContent = "B+"
+                                }
+                                else {
+                                    if (mathGpa > 3.2 && mathGpa <= 3.6) {
+                                        mathGrade.textContent = "A"
+                                    }
+                                    else {
+                                        if (mathGpa > 3.6 && mathGpa <= 4) {
+                                            mathGrade.textContent = "A+"
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+        if (englishGpa <= 0.8) {
+            englishGrade.textContent = "E"
+        }
+        else {
+            if (englishGpa > 0.8 && englishGpa <= 1.2) {
+                englishGrade.textContent = "D"
+
+            }
+            else {
+                if (englishGpa > 1.2 && englishGpa <= 1.6) {
+                    englishGrade.textContent = "D+"
+                }
+                else {
+                    if (englishGpa > 1.6 && englishGpa <= 2.0) {
+                        englishGrade.textContent = "C"
+                    }
+                    else {
+                        if (englishGpa > 2.0 && englishGpa <= 2.4) {
+                            englishGrade.textContent = "C+"
+                        }
+                        else {
+                            if (englishGpa > 2.4 && englishGpa <= 2.8) {
+                                englishGrade.textContent = "B"
+                            }
+                            else {
+                                if (englishGpa > 2.8 && englishGpa <= 3.2) {
+                                    englishGrade.textContent = "B+"
+                                }
+                                else {
+                                    if (englishGpa > 3.2 && englishGpa <= 3.6) {
+                                        englishGrade.textContent = "A"
+                                    }
+                                    else {
+                                        if (englishGpa > 3.6 && englishGpa <= 4) {
+                                            englishGrade.textContent = "A+"
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+
+        if (mupGpa <= 0.8) {
+            mupGrade.textContent = "E"
+        }
+        else {
+            if (mupGpa > 0.8 && mupGpa <= 1.2) {
+                mupGrade.textContent = "D"
+
+            }
+            else {
+                if (mupGpa > 1.2 && mupGpa <= 1.6) {
+                    mupGrade.textContent = "D+"
+                }
+                else {
+                    if (mupGpa > 1.6 && mupGpa <= 2.0) {
+                        mupGrade.textContent = "C"
+                    }
+                    else {
+                        if (mupGpa > 2.0 && mupGpa <= 2.4) {
+                            mupGrade.textContent = "C+"
+                        }
+                        else {
+                            if (mupGpa > 2.4 && mupGpa <= 2.8) {
+                                mupGrade.textContent = "B"
+                            }
+                            else {
+                                if (mupGpa > 2.8 && mupGpa <= 3.2) {
+                                    mupGrade.textContent = "B+"
+                                }
+                                else {
+                                    if (mupGpa > 3.2 && mupGpa <= 3.6) {
+                                        mupGrade.textContent = "A"
+                                    }
+                                    else {
+                                        if (mupGpa > 3.6 && mupGpa <= 4) {
+                                            mupGrade.textContent = "A+"
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+        if (accountGpa <= 0.8) {
+            accountGrade.textContent = "E"
+        }
+        else {
+            if (accountGpa > 0.8 && accountGpa <= 1.2) {
+                accountGrade.textContent = "D"
+
+            }
+            else {
+                if (accountGpa > 1.2 && accountGpa <= 1.6) {
+                    accountGrade.textContent = "D+"
+                }
+                else {
+                    if (accountGpa > 1.6 && accountGpa <= 2.0) {
+                        accountGrade.textContent = "C"
+                    }
+                    else {
+                        if (accountGpa > 2.0 && accountGpa <= 2.4) {
+                            accountGrade.textContent = "C+"
+                        }
+                        else {
+                            if (accountGpa > 2.4 && accountGpa <= 2.8) {
+                                accountGrade.textContent = "B"
+                            }
+                            else {
+                                if (accountGpa > 2.8 && accountGpa <= 3.2) {
+                                    accountGrade.textContent = "B+"
+                                }
+                                else {
+                                    if (accountGpa > 3.2 && accountGpa <= 3.6) {
+                                        accountGrade.textContent = "A"
+                                    }
+                                    else {
+                                        if (accountGpa > 3.6 && accountGpa <= 4) {
+                                            accountGrade.textContent = "A+"
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        if (cGpa <= 0.8) {
+            cGrade.textContent = "E"
+        }
+        else {
+            if (cGpa > 0.8 && cGpa <= 1.2) {
+                cGrade.textContent = "D"
+
+            }
+            else {
+                if (cGpa > 1.2 && cGpa <= 1.6) {
+                    cGrade.textContent = "D+"
+                }
+                else {
+                    if (cGpa > 1.6 && cGpa <= 2.0) {
+                        cGrade.textContent = "C"
+                    }
+                    else {
+                        if (cGpa > 2.0 && cGpa <= 2.4) {
+                            cGrade.textContent = "C+"
+                        }
+                        else {
+                            if (cGpa > 2.4 && cGpa <= 2.8) {
+                                cGrade.textContent = "B"
+                            }
+                            else {
+                                if (cGpa > 2.8 && cGpa <= 3.2) {
+                                    cGrade.textContent = "B+"
+                                }
+                                else {
+                                    if (cGpa > 3.2 && cGpa <= 3.6) {
+                                        cGrade.textContent = "A"
+                                    }
+                                    else {
+                                        if (cGpa > 3.6 && cGpa <= 4) {
+                                            cGrade.textContent = "A+"
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

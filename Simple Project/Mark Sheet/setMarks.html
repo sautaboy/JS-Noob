@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Marks</title>
+</head>
+
+<body>
+    <form action="getMarks.html" id="form" method="get">
+
+        <div class="subjectMarks">
+            <li>
+                <label>
+                    English:
+                    <br>
+                    <input type="text" placeholder="Enter a Marks" id="englishMarks">
+                </label>
+            </li>
+            <li>
+                <label>
+                    Math:
+                    <br>
+                    <input type="text" placeholder="Enter a Marks" id="mathMarks">
+                </label>
+            </li>
+            <li>
+                <label>
+                    Account:
+                    <br>
+
+                    <input type="text" placeholder="Enter a Marks" id="accountMarks">
+                </label>
+            </li>
+            <li>
+                <label>
+                    Mup:
+                    <br>
+
+                    <input type="text" placeholder="Enter a Marks" id="mupMarks">
+                </label>
+            </li>
+            <li>
+                <label>
+                    C:
+                    <br>
+
+                    <input type="text" placeholder="Enter a Marks" id="cMarks">
+                </label>
+            </li>
+            <li>
+                <label>
+                    Student Name:
+                    <br>
+                    <input type="text" placeholder="Enter a Student Name" id="studentName">
+                </label>
+            </li>
+            <li>
+                <label>
+                    Symbol Number:
+                    <br>
+                    <input type="text" placeholder="Enter a Symbol Number" id="symbolNumber">
+                </label>
+            </li>
+            <li>
+                <button type="submit">Push Marks</button>
+            </li>
+            <div id="error"></div>
+        </div>
+    </form>
+
+    <script defer>
+        // this will target the id of subject Marks
+        const englishMarks = document.getElementById('englishMarks')
+        const mathMarks = document.getElementById('mathMarks')
+        const accountMarks = document.getElementById('accountMarks')
+        const mupMarks = document.getElementById('mupMarks')
+        const cMarks = document.getElementById('cMarks')
+        const studentName = document.getElementById('studentName')
+        const symbolNumber = document.getElementById('symbolNumber')
+
+
+        localStorage.setItem("english-marks", englishMarks.value)
+        localStorage.setItem("math-marks", mathMarks.value)
+        localStorage.setItem("account-marks", accountMarks.value)
+        localStorage.setItem("mup-marks", mupMarks.value)
+        localStorage.setItem("c-marks", cMarks.value)
+        localStorage.setItem("student-name", studentName.value)
+        localStorage.setItem("symbol-number", symbolNumber.value)
+
+        const form = document.getElementById('form');
+        form.addEventListener('submit', (e) => {
+            if (englishMarks.value.length == 0 || mathMarks.value.length == 0 || accountMarks.value.length == 0 || mupMarks.value.length == 0 || cMarks.value.length == 0 || studentName.value.length == 0 || symbolNumber.value.length == 0) {
+                e.preventDefault()
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
