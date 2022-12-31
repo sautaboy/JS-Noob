@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#sprContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    padding: 1rem 0;
+    border: 2px solid peru;
+}
+
+#seisor {
+    height: 10rem;
+    width: 10rem;
+    background-color: red;
+    border: none;
+    border: 2px solid snow;
+    border-radius: 1rem;
+    margin: 0 1rem;
+}
+
+#seisor:hover {
+    background-color: purple;
+    /* animation-duration: 1s; */
+    color: white;
+}
+
+#paper {
+    height: 10rem;
+    width: 10rem;
+    background-color: green;
+    margin: 0 1rem;
+    border: none;
+    border: 2px solid snow;
+    border-radius: 1rem;
+
+}
+
+#paper:hover {
+    background-color: yellow;
+    /* animation-duration: 1s; */
+    color: red;
+}
+
+#rock {
+    height: 10rem;
+    width: 10rem;
+    background-color: blue;
+    margin: 0 1rem;
+    border: none;
+    border: 2px solid snow;
+    border-radius: 1rem;
+}
+
+#rock:hover {
+    background-color: pink;
+    /* animation-duration: 1s; */
+    color: brown;
+}
+
+/* Check Button */
+#clearButton {
+    background-color: lightcoral;
+    color: whitesmoke;
+    font-size: 1rem;
+    padding: .5rem;
+    border: none;
+    border: 2px solid snow;
+    border-radius: 1rem;
+
+}
+
+#clearButton:hover {
+    background: rgb(210, 126, 126);
+    color: white;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hotpink;
+    padding: 1rem;
+}
