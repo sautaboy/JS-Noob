@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tipBill.css">
+    <title>Bill Calculator</title>
+</head>
+
+<body>
+    <div class="parentFrame">
+        <h1>BILL CALCULATOR</h1>
+
+        <div class="frame">
+            <label for="billAmount">
+                Bill Total:
+                <input type="text" name="billAmount" id="billAmount" value="" placeholder="100">
+            </label>
+            <label for="tipAmount">
+                Tip
+                <input type="text" name="tipAmount" id="tipAmount" placeholder="10">
+            </label>
+            <label for="buttons" id="bothButton">
+                <span>People: <span id="numberOfPeople">1</span></span>
+                <!-- <span>1</span> -->
+                <button id="plus">+</button>
+                <button id="minus">-</button>
+            </label>
+            <label for="totalAmountPerPerson">Total Per.Person:
+                <!-- <input type="text" name="totalPerPerson" id="totalAmountPerPerson" placeholder="$"> -->
+                <span id="totalBill">0.00</span>
+            </label>
+            <br>
+            <label for="clear">
+                <button id="clear">Clear</button>
+            </label>
+        </div>
+
+
+
+
+    </div>
+
+
+    <!-- This Is The Script Section -->
+    <script src="script.js"></script>
+</body>
+
+</html>
